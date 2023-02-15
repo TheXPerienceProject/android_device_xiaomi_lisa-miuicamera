@@ -1,1 +1,7 @@
 binder_call(hal_camera_default, platform_app)
+
+allow cameraserver vendor_file:file { getattr map open read execute };
+allow hal_camera_default default_prop:file { read open };
+allow hal_camera_default mnt_vendor_file:file execute;
+allow hal_camera_default priv_app:binder { call transfer };
+allow hal_camera_default proc_stat:file { open read };
